@@ -155,12 +155,18 @@ input[type="search"]:focus,select:focus{border-color:var(--orange)}
 .tags span{font-size:11px;border-radius:99px;padding:4px 8px;background:rgba(42,199,128,.1);color:#67dca7;border:1px solid rgba(42,199,128,.2)}
 .card-action{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:10px}
 .card-action button{border:0;background:transparent;color:var(--orange2);font-weight:800;cursor:pointer}
+.card-buttons{display:flex;gap:8px;flex-wrap:wrap}
+.card-buttons .range-link{color:#8fc2ff}
 .calculator-grid{display:grid;grid-template-columns:1fr .9fr;gap:34px;align-items:stretch}
 .calc-card,.truth-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px}
 .calc-card label{margin-bottom:24px}
 input[type="range"]{width:100%;accent-color:var(--orange)}
 .calc-result{display:grid;grid-template-columns:1fr auto;gap:12px;padding:18px;background:#0f1217;border-radius:15px;margin:16px 0}
 .calc-result span{color:#969fab}.calc-result strong{font-size:20px}
+.calc-selected{padding:14px 16px;margin-bottom:14px;border:1px solid #343c48;border-radius:14px;background:#10141a}
+.calc-selected span{display:block;color:#8f98a6;font-size:12px}.calc-selected strong{display:block;font-size:18px;margin-top:2px}
+.speed-result{display:block;padding:20px;background:linear-gradient(145deg,#171c24,#0d1015);border:1px solid #303844;border-radius:16px;margin:16px 0}
+.speed-result span{display:block;color:#9aa3b0;font-size:13px}.speed-result strong{display:block;margin:3px 0;font-size:34px;color:#fff}.speed-result small{display:block;color:#ffad70}
 .calc-card small{color:#7f8793}
 .truth-card{background:linear-gradient(145deg,#1e242e,#12151b);position:relative;overflow:hidden}
 .truth-number{font-size:90px;line-height:1;color:rgba(255,101,0,.18);font-weight:900}
@@ -297,10 +303,10 @@ dialog p{margin:0;padding:12px 16px;color:#c4cad3}
   footer .container{display:block}
   footer p{text-align:left;margin-top:14px}
   .mobile-bar{
-    display:grid;grid-template-columns:1fr 1fr 1.2fr;position:fixed;z-index:40;left:10px;right:10px;bottom:max(10px,env(safe-area-inset-bottom));
+    display:grid;grid-template-columns:repeat(5,1fr);position:fixed;z-index:40;left:8px;right:8px;bottom:max(8px,env(safe-area-inset-bottom));
     background:rgba(20,23,29,.94);border:1px solid #343b46;border-radius:16px;box-shadow:0 18px 50px rgba(0,0,0,.5);overflow:hidden;backdrop-filter:blur(16px)
   }
-  .mobile-bar a,.mobile-bar button{min-height:50px;padding:13px 8px;border:0;background:transparent;color:#fff;text-align:center;font:inherit;font-size:13px;font-weight:800;border-right:1px solid #303640;cursor:pointer}
+  .mobile-bar a,.mobile-bar button{min-height:50px;padding:12px 3px;border:0;background:transparent;color:#fff;text-align:center;font:inherit;font-size:11px;font-weight:800;border-right:1px solid #303640;cursor:pointer}
   .mobile-bar a:last-child,.mobile-bar button:last-child{border-right:0}
   .mobile-bar .hot{background:linear-gradient(135deg,var(--orange),#ff7a00);color:white}
   #contactDialog{margin:auto auto max(12px,env(safe-area-inset-bottom));width:calc(100vw - 20px);border-radius:20px}
@@ -482,37 +488,33 @@ dialog p{margin:0;padding:12px 16px;color:#c4cad3}
       </div>
     </section>
 
-    <section class="section calculator-section">
+    <section id="range-calculator" class="section calculator-section">
       <div class="container calculator-grid">
         <div>
           <div class="section-heading left">
             <p class="eyebrow"><span></span> 续航估算</p>
-            <h2>别用“多少安跑多少公里”一刀切</h2>
-            <p>这里按电池能量和整车电耗估算，更接近真实逻辑。结果只做选型参考，不作为里程承诺。</p>
+            <h2>选好型号，再看不同速度能跑多远</h2>
+            <p>点击任一产品的“估算续航”，这里会自动带入型号。你只需要选择常用时速，就能看到更容易理解的续航参考。</p>
           </div>
           <div class="calc-card">
-            <label>
-              <span>电压平台</span>
-              <select id="calcVoltage">
-                <option value="72">72V</option>
-                <option value="60">60V</option>
-              </select>
-            </label>
-            <label>
-              <span>电池容量 <b id="capacityValue">120Ah</b></span>
-              <input id="capacityRange" type="range" min="54" max="199" value="120" step="1">
-            </label>
-            <label>
-              <span>平均电耗 <b id="consumptionValue">36Wh/km</b></span>
-              <input id="consumptionRange" type="range" min="24" max="60" value="36" step="1">
-            </label>
-            <div class="calc-result">
-              <span>理论可用能量</span>
-              <strong id="energyResult">7776Wh</strong>
-              <span>预计续航</span>
-              <strong id="rangeResult">216km</strong>
+            <div class="calc-selected">
+              <span>当前估算型号</span>
+              <strong id="selectedProductName">72V117ah 三元锂</strong>
             </div>
-            <small>按所选标称电压、90%可用能量计算；速度、温度、车重、胎压、路况与控制器都会影响结果。</small>
+            <label>
+              <span>选择电池型号</span>
+              <select id="calcProduct"></select>
+            </label>
+            <label>
+              <span>常用平均时速 <b id="speedValue">50km/h</b></span>
+              <input id="speedRange" type="range" min="30" max="100" value="50" step="10">
+            </label>
+            <div class="speed-result">
+              <span id="rangeSpeedLabel">平均时速 50km/h 情况下</span>
+              <strong id="rangeResult">预计约 253km</strong>
+              <small id="rangeBand">参考区间 228–278km</small>
+            </div>
+            <small>按电池标称能量、90%可用能量及不同速度的参考能耗估算；急加速、载重、低温、逆风、胎压和控制器设置都会缩短续航。本结果不作为里程承诺。</small>
           </div>
         </div>
 
@@ -707,7 +709,9 @@ dialog p{margin:0;padding:12px 16px;color:#c4cad3}
   <div class="mobile-bar">
     <a href="#fit">查方案</a>
     <a href="#products">看价格</a>
-    <button class="hot" type="button" data-open-contact>联系沛哥</button>
+    <a href="#range-calculator">续航</a>
+    <a href="#warranty">售后</a>
+    <button class="hot" type="button" data-open-contact>联系</button>
   </div>
 
   <dialog id="imageDialog">
@@ -876,7 +880,10 @@ function productCard(p, compact=false) {
       </details>
       <div class="card-action">
         <small>不含充电器 · 运费另计</small>
-        <button type="button" data-consult="${p.model}" data-cell="${p.cell}">拿这个方案咨询 →</button>
+        <div class="card-buttons">
+          <button class="range-link" type="button" data-range-id="${p.id}">估算续航</button>
+          <button type="button" data-consult="${p.model}" data-cell="${p.cell}">咨询方案 →</button>
+        </div>
       </div>
     </article>`;
 }
@@ -907,6 +914,7 @@ function renderProducts() {
     btn.textContent = expandedProducts ? "收起产品列表" : `展开全部${list.length}款`;
   }
   bindConsultButtons();
+  bindRangeButtons();
 }
 
 function matchProducts() {
@@ -956,18 +964,38 @@ function matchProducts() {
 
   $("#fitResults").innerHTML = result.map(p => productCard(p, true)).join("");
   bindConsultButtons();
+  bindRangeButtons();
+}
+
+function speedConsumption(speed) {
+  const table = {30:20,40:24,50:30,60:36,70:44,80:52,90:62,100:72};
+  return table[speed] || 30;
+}
+
+function selectedCalcProduct() {
+  return PRODUCTS.find(p => String(p.id) === $("#calcProduct").value) || PRODUCTS[0];
 }
 
 function updateCalculator() {
-  const voltage = Number($("#calcVoltage").value);
-  const ah = Number($("#capacityRange").value);
-  const whPerKm = Number($("#consumptionRange").value);
-  const usableWh = Math.round(voltage * ah * 0.9);
-  const km = Math.round(usableWh / whPerKm);
-  $("#capacityValue").textContent = `${ah}Ah`;
-  $("#consumptionValue").textContent = `${whPerKm}Wh/km`;
-  $("#energyResult").textContent = `${money(usableWh)}Wh`;
-  $("#rangeResult").textContent = `${km}km`;
+  const product = selectedCalcProduct();
+  const speed = Number($("#speedRange").value);
+  const usableWh = product.voltage * product.capacity * 0.9;
+  const km = Math.round(usableWh / speedConsumption(speed));
+  $("#selectedProductName").textContent = `${product.model}｜${product.cell}`;
+  $("#speedValue").textContent = `${speed}km/h`;
+  $("#rangeSpeedLabel").textContent = `平均时速 ${speed}km/h 情况下`;
+  $("#rangeResult").textContent = `预计约 ${km}km`;
+  $("#rangeBand").textContent = `参考区间 ${Math.round(km * 0.9)}–${Math.round(km * 1.1)}km`;
+}
+
+function bindRangeButtons() {
+  $$("[data-range-id]").forEach(btn => {
+    btn.onclick = () => {
+      $("#calcProduct").value = btn.dataset.rangeId;
+      updateCalculator();
+      $("#range-calculator").scrollIntoView({behavior:"smooth", block:"start"});
+    };
+  });
 }
 
 async function copyText(text) {
@@ -1053,6 +1081,12 @@ function setupGallery() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  $("#products").after($("#range-calculator"));
+  $("#calcProduct").innerHTML = PRODUCTS.map(p =>
+    `<option value="${p.id}">${p.model}｜${p.cell}</option>`
+  ).join("");
+  const defaultCalcProduct = PRODUCTS.find(p => p.voltage === 72 && Number(p.capacity) === 117) || PRODUCTS[0];
+  $("#calcProduct").value = String(defaultCalcProduct.id);
   renderProducts();
   matchProducts();
   updateCalculator();
@@ -1092,9 +1126,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!e.target.closest(".vehicle-field")) closeVehiclePicker();
   });
 
-  $("#calcVoltage").addEventListener("change", updateCalculator);
-  $("#capacityRange").addEventListener("input", updateCalculator);
-  $("#consumptionRange").addEventListener("input", updateCalculator);
+  $("#calcProduct").addEventListener("change", updateCalculator);
+  $("#speedRange").addEventListener("input", updateCalculator);
 
   $$(".filter").forEach(btn => {
     btn.addEventListener("click", () => {
