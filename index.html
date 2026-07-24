@@ -26,9 +26,12 @@
   --shadow:0 22px 60px rgba(0,0,0,.35);
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;max-width:100%;overflow-x:hidden}
 body{
   margin:0;
+  width:100%;
+  max-width:100%;
+  position:relative;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;
   background:var(--bg);
   color:var(--text);
@@ -246,7 +249,12 @@ dialog p{margin:0;padding:12px 16px;color:#c4cad3}
   .warranty-grid article.featured{grid-row:auto;grid-column:1/-1}
 }
 @media (max-width:680px){
-  html,body{max-width:100%;overflow-x:hidden}
+  html,body{
+    width:100%;max-width:100%;overflow-x:hidden;overflow-x:clip;
+    overscroll-behavior-x:none;touch-action:pan-y
+  }
+  body>*{max-width:100%}
+  input[type="range"]{touch-action:auto}
   main,.section,.container,.narrow,.fit-panel,.product-card{min-width:0;max-width:100%}
   .container,.narrow{width:min(100% - 24px,var(--max))}
   .section{padding:54px 0}
