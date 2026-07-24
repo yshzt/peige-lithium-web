@@ -1,0 +1,815 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0b0e">
+  <meta name="description" content="沛哥的锂电：72V 100Ah+高性能锂电定制。生产透明、参数透明、定制交付。">
+  <title>沛哥的锂电｜72V高性能锂电定制</title>
+  <link rel="icon" href="assets/favicon.png">
+<style>
+
+:root{
+  --bg:#090a0d;
+  --bg2:#101216;
+  --card:#151820;
+  --card2:#1b1f28;
+  --line:#2a303b;
+  --text:#f4f5f7;
+  --muted:#aab0bc;
+  --orange:#ff6500;
+  --orange2:#ff8a1f;
+  --blue:#1677ff;
+  --green:#2ac780;
+  --max:1180px;
+  --radius:22px;
+  --shadow:0 22px 60px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.65;
+  overflow-x:hidden;
+}
+body::before{
+  content:"";
+  position:fixed; inset:0; z-index:-2;
+  background:
+    radial-gradient(circle at 80% 2%,rgba(22,119,255,.12),transparent 28%),
+    radial-gradient(circle at 20% 35%,rgba(255,101,0,.08),transparent 28%),
+    linear-gradient(180deg,#090a0d,#0e1015 55%,#090a0d);
+}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit}
+img{display:block;max-width:100%}
+.container{width:min(var(--max),calc(100% - 40px));margin-inline:auto}
+.narrow{width:min(860px,calc(100% - 40px))}
+.section{padding:96px 0;position:relative}
+.section-heading{max-width:760px;margin-bottom:38px}
+.section-heading.left{margin-bottom:28px}
+.section-heading.split{max-width:none;display:flex;justify-content:space-between;align-items:flex-end;gap:32px}
+.section-heading h2{font-size:clamp(32px,4vw,54px);line-height:1.12;margin:8px 0 14px;letter-spacing:-.03em}
+.section-heading p{color:var(--muted);margin:0}
+.eyebrow{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#d8dde6;font-weight:800;margin:0 0 12px}
+.eyebrow span{display:inline-block;width:34px;height:3px;background:linear-gradient(90deg,var(--orange),var(--orange2));vertical-align:middle;margin-right:10px;border-radius:99px}
+.btn{
+  border:1px solid var(--line); border-radius:13px; padding:13px 20px;
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  font-weight:800;cursor:pointer;transition:.2s ease;background:transparent;color:var(--text)
+}
+.btn:hover{transform:translateY(-2px);border-color:#586172}
+.btn.primary{background:linear-gradient(135deg,var(--orange),#ff7a00);border-color:transparent;color:white;box-shadow:0 12px 30px rgba(255,101,0,.25)}
+.btn.ghost{background:#14171d}
+.btn.centered{display:flex;margin:26px auto 0}
+.site-header{
+  position:fixed;top:0;left:0;right:0;z-index:30;
+  background:rgba(9,10,13,.82);backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(255,255,255,.07)
+}
+.nav-wrap{height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900}
+.brand img{width:78px;height:34px;object-fit:cover;object-position:left center;border-radius:5px}
+.brand span{white-space:nowrap}
+nav{display:flex;gap:30px;color:#cbd0d8;font-size:14px}
+nav a{display:inline-block;min-width:58px;text-align:center;white-space:nowrap}
+nav a:hover{color:white}
+.nav-contact{background:#20242c;border:1px solid #343a45;padding:9px 15px;border-radius:10px;font-size:14px;font-weight:800}
+.hero{padding:142px 0 48px;min-height:880px;overflow:hidden}
+.hero::after{
+  content:"";position:absolute;left:50%;top:80px;width:800px;height:800px;
+  background:radial-gradient(circle,rgba(255,101,0,.12),transparent 65%);
+  pointer-events:none
+}
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:40px;min-height:650px}
+.hero-copy{position:relative;z-index:2}
+.hero h1{font-size:clamp(44px,6vw,78px);line-height:1.04;letter-spacing:-.055em;margin:12px 0 24px}
+.hero h1 em{font-style:normal;color:var(--orange2)}
+.hero-lead{font-size:18px;color:#c3c8d2;max-width:680px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin:32px 0}
+.hero-points{display:flex;gap:20px;flex-wrap:wrap;color:#9ea5b0;font-size:13px}
+.hero-points span::before{content:"✓";color:var(--green);margin-right:7px;font-weight:900}
+.hero-visual{position:relative;height:620px;display:grid;place-items:center;z-index:2}
+.pack-card{
+  width:440px;height:430px;position:relative;border:1px solid #3a414d;border-radius:28px;
+  background:linear-gradient(145deg,#252a34,#11141a 62%);box-shadow:var(--shadow);
+  transform:rotate(-5deg);padding:26px;overflow:hidden
+}
+.pack-card::before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.06),transparent 55%);transform:translateX(-60%)}
+.pack-top{display:flex;justify-content:space-between;align-items:center;color:#8d96a5;font-size:12px;letter-spacing:.18em}
+.pack-top strong{font-size:34px;color:white;letter-spacing:-.04em}
+.cell-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-top:34px}
+.cell-grid i{height:68px;border-radius:9px;background:linear-gradient(180deg,#1a73ff,#0c3f96);border:1px solid #3e8cff;box-shadow:inset 0 0 0 4px rgba(255,255,255,.06)}
+.busbar{position:absolute;height:12px;border-radius:8px;background:linear-gradient(90deg,#c86c2a,#f0b676,#b64c18);box-shadow:0 0 18px rgba(255,101,0,.25)}
+.busbar-a{left:55px;right:55px;top:155px}
+.busbar-b{left:55px;right:110px;bottom:86px}
+.bms-box{position:absolute;right:28px;bottom:24px;width:100px;height:48px;border-radius:10px;border:1px solid #667080;background:#262c36;display:grid;place-items:center;color:#b9c0cc;font-size:13px;letter-spacing:.1em}
+.float-card{position:absolute;background:rgba(22,25,31,.9);border:1px solid #343b47;border-radius:15px;padding:13px 16px;box-shadow:var(--shadow);backdrop-filter:blur(10px)}
+.float-card b{display:block;font-size:20px}
+.float-card span{font-size:12px;color:#9ea5b0}
+.f1{left:-6px;top:105px}.f2{right:-2px;top:205px}.f3{left:35px;bottom:45px}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:36px}
+.hero-stats div{padding:22px 24px;border-right:1px solid var(--line)}
+.hero-stats div:last-child{border-right:0}
+.hero-stats strong{display:block;font-size:26px}
+.hero-stats span{color:#969eaa;font-size:13px}
+.fit-section{background:linear-gradient(180deg,#101218,#0c0e12)}
+.fit-panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)}
+.fit-controls{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:12px}
+.fit-controls label,.calc-card label{display:flex;flex-direction:column;gap:8px}
+.fit-controls label span,.calc-card label span{font-size:13px;color:#aeb5c0;font-weight:700}
+input[type="search"],select{
+  width:100%;height:48px;background:#0f1116;color:white;border:1px solid #303642;border-radius:12px;padding:0 14px;outline:none
+}
+input[type="search"]:focus,select:focus{border-color:var(--orange)}
+.fit-note{display:flex;gap:12px;flex-wrap:wrap;padding:18px 4px 6px;color:#949ca8;font-size:13px}
+.fit-note b{color:#dfe3e9}.fit-note span{background:#101319;border:1px solid #282e38;border-radius:99px;padding:3px 10px}
+.fit-summary{margin:18px 0 8px;color:#d5d9e1}
+.fit-summary strong{color:var(--orange2)}
+.product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.product-grid.compact{grid-template-columns:repeat(3,1fr)}
+.product-card{
+  background:linear-gradient(145deg,#1b1f27,#12151b);border:1px solid #2d333e;border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:14px;position:relative;overflow:hidden;min-height:330px
+}
+.product-card::after{content:"";position:absolute;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle,rgba(255,101,0,.11),transparent 65%);right:-42px;top:-48px}
+.product-card:hover{border-color:#485260;transform:translateY(-3px);transition:.2s}
+.card-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.grade{font-size:12px;font-weight:900;border-radius:7px;padding:4px 8px;background:#243041;color:#cfe1ff}
+.grade.grade-A{background:rgba(255,101,0,.14);color:#ffad70}
+.grade.grade-B{background:rgba(22,119,255,.14);color:#83b9ff}
+.grade.grade-C{background:rgba(255,255,255,.08);color:#c8ced8}
+.price{font-size:26px;font-weight:900;letter-spacing:-.04em;color:#fff}
+.price small{font-size:12px;color:#9ca3ae;font-weight:600}
+.product-card h3{font-size:21px;margin:0;line-height:1.25}
+.cell-name{color:#aeb5c0;font-size:14px;min-height:45px}
+.specs{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.specs span{background:#0e1116;border:1px solid #262c35;border-radius:10px;padding:8px 10px;font-size:12px;color:#b9c0cb}
+.fit-text{font-size:12px;color:#99a1ad;border-top:1px solid #292f39;padding-top:12px}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{font-size:11px;border-radius:99px;padding:4px 8px;background:rgba(42,199,128,.1);color:#67dca7;border:1px solid rgba(42,199,128,.2)}
+.card-action{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.card-action button{border:0;background:transparent;color:var(--orange2);font-weight:800;cursor:pointer}
+.calculator-grid{display:grid;grid-template-columns:1fr .9fr;gap:34px;align-items:stretch}
+.calc-card,.truth-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px}
+.calc-card label{margin-bottom:24px}
+input[type="range"]{width:100%;accent-color:var(--orange)}
+.calc-result{display:grid;grid-template-columns:1fr auto;gap:12px;padding:18px;background:#0f1217;border-radius:15px;margin:16px 0}
+.calc-result span{color:#969fab}.calc-result strong{font-size:20px}
+.calc-card small{color:#7f8793}
+.truth-card{background:linear-gradient(145deg,#1e242e,#12151b);position:relative;overflow:hidden}
+.truth-number{font-size:90px;line-height:1;color:rgba(255,101,0,.18);font-weight:900}
+.truth-card h3{font-size:32px;margin:0 0 14px}
+.truth-card p{color:#aab1bc}
+.truth-list{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}
+.truth-list span{padding:11px;border:1px solid #343b46;border-radius:12px;background:#141820}
+.products-section{background:#0d0f14}
+.filter-bar{display:flex;gap:8px;flex-wrap:wrap}
+.filter{border:1px solid #303642;background:#151920;color:#aeb5bf;border-radius:99px;padding:9px 13px;cursor:pointer}
+.filter.active{background:var(--orange);color:#fff;border-color:var(--orange)}
+.price-includes{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+.price-includes>div{background:#141820;border:1px solid #2b313b;border-radius:16px;padding:18px}
+.price-includes b{display:block;margin-bottom:10px}
+.price-includes span{display:inline-block;color:#aab2bd;font-size:13px;margin-right:12px}
+.price-includes span::before{content:"✓";color:var(--green);margin-right:5px}
+.craft-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px}
+.craft-grid article{border:1px solid #2b313b;background:#141820;border-radius:18px;padding:22px}
+.craft-grid article span{color:var(--orange2);font-weight:900}
+.craft-grid h3{margin:10px 0 8px}
+.craft-grid p{margin:0;color:#9fa7b2;font-size:14px}
+.gallery{display:grid;grid-template-columns:1.1fr 1.1fr .8fr .8fr;gap:14px}
+.gallery-item{border:1px solid #2d333d;background:#11141a;border-radius:18px;overflow:hidden;padding:0;cursor:pointer;position:relative;min-height:330px}
+.gallery-item img{width:100%;height:100%;object-fit:cover}
+.gallery-item.poster img{object-position:top}
+.gallery-item span{position:absolute;left:14px;bottom:14px;background:rgba(8,9,12,.8);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:7px 10px;color:white;font-weight:800}
+.warranty-section{background:linear-gradient(180deg,#10131a,#0b0d11)}
+.warranty-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:16px}
+.warranty-grid article{background:#151920;border:1px solid #2e3540;border-radius:18px;padding:24px}
+.warranty-grid article.featured{grid-row:span 2;background:linear-gradient(150deg,#242831,#13161c);border-color:#5c3b25}
+.warranty-grid article span{color:var(--orange2);font-weight:900}
+.warranty-grid h3{font-size:22px;line-height:1.35}
+.warranty-grid p{color:#a3abb6}
+.faq-list{display:grid;gap:10px}
+details{background:#141820;border:1px solid #2b313b;border-radius:15px;padding:4px 18px}
+summary{cursor:pointer;font-weight:800;padding:14px 0}
+details p{color:#aab1bb;margin:0 0 16px}
+.final-cta{padding:90px 0;background:
+  radial-gradient(circle at 20% 20%,rgba(22,119,255,.14),transparent 34%),
+  radial-gradient(circle at 80% 60%,rgba(255,101,0,.12),transparent 32%),
+  #11141a}
+.final-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:30px;align-items:center}
+.final-grid h2{font-size:clamp(34px,4vw,52px);line-height:1.18;margin:10px 0 16px}
+.final-grid>div>p{color:#aab1bb}
+.contact-card{background:#0d1015;border:1px solid #343b45;border-radius:20px;padding:28px}
+.contact-card>span{display:block;color:#89929f;font-size:13px}
+.contact-card strong,.contact-card>a{display:block;font-size:28px;font-weight:900;margin:2px 0 18px}
+.contact-actions{display:flex;gap:10px;margin:14px 0}
+.contact-card small{color:#858e9a}
+footer{padding:30px 0 90px;border-top:1px solid #282e37;background:#08090c;color:#89919d}
+footer .container{display:flex;justify-content:space-between;gap:30px}
+footer b{display:block;color:white}
+footer span{font-size:13px}
+footer p{max-width:560px;font-size:12px;margin:0;text-align:right}
+.mobile-bar{display:none}
+dialog{border:0;border-radius:18px;padding:0;background:#11141a;color:#fff;max-width:min(980px,92vw);box-shadow:0 30px 100px #000}
+dialog::backdrop{background:rgba(0,0,0,.78)}
+dialog img{max-height:82vh;max-width:90vw;object-fit:contain}
+dialog p{margin:0;padding:12px 16px;color:#c4cad3}
+#closeDialog{position:absolute;right:10px;top:10px;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.18);background:rgba(0,0,0,.65);color:#fff;font-size:26px;cursor:pointer}
+
+@media (max-width:1000px){
+  nav{display:none}
+  .hero-grid,.calculator-grid,.final-grid{grid-template-columns:1fr}
+  .hero-visual{height:460px}
+  .hero{min-height:auto}
+  .fit-controls{grid-template-columns:1fr 1fr}
+  .product-grid,.product-grid.compact{grid-template-columns:repeat(2,1fr)}
+  .craft-grid{grid-template-columns:repeat(2,1fr)}
+  .gallery{grid-template-columns:repeat(2,1fr)}
+  .warranty-grid{grid-template-columns:1fr 1fr}
+  .warranty-grid article.featured{grid-row:auto;grid-column:1/-1}
+}
+@media (max-width:680px){
+  .container,.narrow{width:min(100% - 24px,var(--max))}
+  .section{padding:72px 0}
+  .site-header{position:sticky}
+  .nav-wrap{height:62px}
+  .brand img{width:66px;height:30px}
+  .brand span{font-size:14px}
+  .nav-contact{display:none}
+  .hero{padding:52px 0 28px}
+  .hero h1{font-size:43px}
+  .hero-lead{font-size:16px}
+  .hero-visual{height:360px}
+  .pack-card{width:300px;height:300px;padding:18px}
+  .cell-grid{gap:5px;margin-top:20px}
+  .cell-grid i{height:46px}
+  .pack-top strong{font-size:26px}
+  .busbar-a{top:108px;left:38px;right:38px}.busbar-b{bottom:58px;left:38px;right:80px}
+  .bms-box{right:18px;bottom:14px;width:72px;height:38px}
+  .float-card{padding:9px 11px}.float-card b{font-size:16px}.float-card span{font-size:10px}
+  .f1{left:0;top:50px}.f2{right:0;top:130px}.f3{left:20px;bottom:25px}
+  .hero-stats{grid-template-columns:1fr 1fr}
+  .hero-stats div{border-bottom:1px solid var(--line)}
+  .fit-controls{grid-template-columns:1fr}
+  .fit-panel{padding:16px}
+  .section-heading.split{display:block}
+  .filter-bar{margin-top:20px}
+  .product-grid,.product-grid.compact,.craft-grid,.gallery,.warranty-grid,.price-includes{grid-template-columns:1fr}
+  .gallery-item{min-height:260px}
+  .gallery-item.poster{max-height:430px}
+  .truth-card h3{font-size:27px}
+  .final-cta{padding-bottom:110px}
+  footer{padding-bottom:110px}
+  footer .container{display:block}
+  footer p{text-align:left;margin-top:14px}
+  .mobile-bar{
+    display:grid;grid-template-columns:1fr 1fr 1.2fr;position:fixed;z-index:40;left:10px;right:10px;bottom:max(10px,env(safe-area-inset-bottom));
+    background:rgba(20,23,29,.94);border:1px solid #343b46;border-radius:16px;box-shadow:0 18px 50px rgba(0,0,0,.5);overflow:hidden;backdrop-filter:blur(16px)
+  }
+  .mobile-bar a{padding:13px 8px;text-align:center;font-size:13px;font-weight:800;border-right:1px solid #303640}
+  .mobile-bar a:last-child{border-right:0}
+  .mobile-bar .hot{background:linear-gradient(135deg,var(--orange),#ff7a00);color:white}
+}
+</style>
+<script>
+
+const PRODUCTS = [{"sourceId":1,"voltage":60,"chemistry":"磷酸铁锂","positioning":"磷酸铁锂定制款","model":"60V54ah磷酸铁锂","cell":"国轩54全新A/A-","cellStatus":"全新A/A-","capacity":54,"rate":"2C","resistance":0.55,"cellWeight":1.04,"bms":"极空80","batteryWire":"8平方","controllerWire":"8平方","chargeWire":"5平方","chargeLimit":"30A","price":2160,"pricePerAh":40,"directFit":"165*240*345","modifiedFit":"根据尺寸定制","fit":"165*240*345；根据尺寸定制","note":"下单前需复核实车仓位、接口、控制器母线和使用场景。","tags":["60V","磷酸铁锂","无损直上"]},{"sourceId":2,"voltage":72,"chemistry":"磷酸铁锂","positioning":"磷酸铁锂定制款","model":"72V54ah磷酸铁锂","cell":"国轩54全新A/A-","cellStatus":"全新A/A-","capacity":54,"rate":"2C","resistance":0.55,"cellWeight":1.04,"bms":"极空80","batteryWire":"8平方","controllerWire":"8平方","chargeWire":"5平方","chargeLimit":"30A","price":2550,"pricePerAh":47.22,"directFit":"177*240*375或188*240*345","modifiedFit":"根据尺寸定制","fit":"177*240*375或188*240*345；根据尺寸定制","note":"下单前需复核实车仓位、接口、控制器母线和使用场景。","tags":["72V","磷酸铁锂","无损直上"]},{"sourceId":3,"voltage":60,"chemistry":"磷酸铁锂","positioning":"磷酸铁锂定制款","model":"60V78ah磷酸铁锂","cell":"国轩78全新A/A-","cellStatus":"全新A/A-","capacity":78,"rate":"2C","resistance":0.45,"cellWeight":1.4,"bms":"极空80","batteryWire":"8平方","controllerWire":"8平方","chargeWire":"5平方","chargeLimit":"30A","price":2800,"pricePerAh":35.9,"directFit":"根据尺寸定制","modifiedFit":"根据尺寸定制","fit":"根据尺寸定制；根据尺寸定制","note":"下单前需复核实车仓位、接口、控制器母线和使用场景。","tags":["60V","磷酸铁锂"]},{"sourceId":4,"voltage":72,"chemistry":"磷酸铁锂","positioning":"磷酸铁锂定制款","model":"72V78ah磷酸铁锂","cell":"国轩78全新A/A-","cellStatus":"全新A/A-","capacity":78,"rate":"2C","resistance":0.45,"cellWeight":1.4,"bms":"极空80","batteryWire":"8平方","controllerWire":"8平方","chargeWire":"5平方","chargeLimit":"30A","price":3350,"pricePerAh":42.95,"directFit":"根据尺寸定制","modifiedFit":"根据尺寸定制","fit":"根据尺寸定制；根据尺寸定制","note":"下单前需复核实车仓位、接口、控制器母线和使用场景。","tags":["72V","磷酸铁锂"]},{"sourceId":5,"voltage":72,"chemistry":"三元锂","positioning":"性能改装款","model":"72V93ah 三元锂","cell":"宁德93模组","cellStatus":"模组","capacity":93,"rate":"3C","resistance":0.5,"cellWeight":1.42,"bms":"极空120//蚂蚁325","batteryWire":"16平方","controllerWire":"16平方","chargeWire":"8平方","chargeLimit":"50A","price":3980,"pricePerAh":42.8,"directFit":"九号：NZ/MZ/N370C/N385C/M80C/M85C/M95C/M395C/M385C/M395C闪骑/M385C闪骑/M5/E125MK2/ E80CMK2/M3 100；\n极核：26款 AE4/AE4 SE/25款 AE4/AE4 SE/AE5i/AE5i Pro/AE3/AE3 Pro；\n小牛：NX风速/FX风速/FX Pro/NX Pro/24款 FXT/25款 FXT/25款 NXT/NLT/N1S /NQI（改最大化仓）/艾薇三代车架/24款 NPlay/25款 NPlay","modifiedFit":"九号：E80C","fit":"九号：NZ/MZ/N370C/N385C/M80C/M85C/M95C/M395C/M385C/M395C闪骑/M385C闪骑/M5/E125MK2/ E80CMK2/M3 100；\n极核：26款 AE4/AE4 SE/25款 AE4/AE4 SE/AE5i/AE5i Pro/AE3/AE3 Pro；\n小牛：NX风速/FX风速/FX Pro/NX Pro/24款 FXT/25款 FXT/25款 NXT/NLT/N1S /NQI（改最大化仓）/艾薇三代车架/24款 NPlay/25款 NPlay；九号：E80C","note":"下单前需复核实车仓位、接口、控制器母线和使用场景。","tags":["72V","三元锂","高倍率","无损直上"]},{"sourceId":6,"voltage":72,"chemistry":"三元锂","positioning":"通用成交款","model":"72V113ah 三元锂","cell":"中航113模组","cellStatus":"模组","capacity":113,"rate":"2C","resistance":0.5,"cellWeight":1.8,"bms":"极空120//蚂蚁325","batteryWire":"16平方","controllerWire":"16平方","chargeWire":"8平方","chargeLimit":"50A","price":4200,"pricePerAh":37.17,"directFit":"九号：E80C/MK2/N系（新款）/M系/MZ/NZ；极核：AE4/AE5；小牛：NXT/NX/FXT/FX；原车32A以上铅酸电池仓可直上","modifiedFit":"根据尺寸定制","fit":"九号：E80C/MK2/N系（新款）/M系/MZ/NZ；极核：AE4/AE5；小牛：NXT/NX/FXT/FX；原车32A以上铅酸电池仓可直上；根据尺寸定制","note":"下单前需复核实车仓位、接口、控制器母线和使用场景。","tags":["72V","三元锂","无损直上"]},{"sourceId":7,"voltage":72,"chemistry":"三元锂","positioning":"通用成交款","model":"72V117ah 三元锂","cell":"蜂巢117方块全新A/A-","cellStatus":"全新A/A-","capacity":117,"rate":"2C","resistance":0.4,"cellWeight":1.8,"bms":"极空120//蚂蚁325","batteryWire":"16平方","controllerWire":"16平方","chargeWire":"8平方","chargeLimit":"45A","price":4500,"pricePerAh":38.46,"directFit":"九号：NZ/MZ/N370C/N385C/M80C/M85C/M95C/M395C/M385C/M395C闪骑/M385C闪骑/M5/M3 100；极核：26款 AE4/AE4 SE/25款 AE4/AE4 SE/AE5i/AE5i Pro/AE3/AE3 Pro；\n小牛：NX风速//FX风速/FX Pro/NX Pro/24款 FXT/N1S /NQI（改最大化仓）/艾薇三代车架/24款 NPlay","modifiedFit":"九号：E80C/E125MK2/E80CMK2；小牛：25款 FXT/25款 NXT/NLT/25款 NPlay","fit":"九号：NZ/MZ/N370C/N385C/M80C/M85C/M95C/M395C/M385C/M395C闪骑/M385C闪骑/M5/M3 100；极核：26款 AE4/AE4 SE/25款 AE4/AE4 SE/AE5i/AE5i Pro/AE3/AE3 Pro；\n小牛：NX风速//FX风速/FX Pro/NX Pro/24款 FXT/N1S /NQI（改最大化仓）/艾薇三代车架/24款 NPlay；九号：E80C/E125MK2/E80CMK2；小牛：25款 FXT/25款 NXT/NLT/25款 NPlay","note":"下单前需复核实车仓位、接口、控制器母线和使用场景。","tags":["72V","三元锂","无损直上"]},{"sourceId":8,"voltage":72,"chemistry":"三元锂","positioning":"通用成交款","model":"72V117ah 三元锂","cell":"宁德117方块 全新B","cellStatus":"全新B","capacity":117,"rate":"2C","resistance":0.5,"cellWeight":1.8,"bms":"极空120//蚂蚁325","batteryWire":"20平方","controllerWire":"20平方","chargeWire":"8平方","chargeLimit":"50A","price":5200,"pricePerAh":44.44,"directFit":"九号：NZ/MZ/N370C/N385C/M80C/M85C/M95C/M395C/M385C/M395C闪骑/M385C闪骑/M5/M3 100；极核：26款 AE4/AE4 SE/25款 AE4/AE4 SE/AE5i/AE5i Pro/AE3/AE3 Pro；\n小牛：NX风速/FX风速/FX Pro/NX Pro/24款 FXT/N1S /NQI（改最大化仓）/艾薇三代车架/24款 NPlay","modifiedFit":"九号：E80C/E125MK2/E80CMK2；小牛：25款 FXT/25款 NXT/NLT/25款 NPlay","fit":"九号：NZ/MZ/N370C/N385C/M80C/M85C/M95C/M395C/M385C/M395C闪骑/M385C闪骑/M5/M3 100；极核：26款 AE4/AE4 SE/25款 AE4/AE4 SE/AE5i/AE5i Pro/AE3/AE3 Pro；\n小牛：NX风速/FX风速/FX Pro/NX Pro/24款 FXT/N1S /NQI（改最大化仓）/艾薇三代车架/24款 NPlay；九号：E80C/E125MK2/E80CMK2；小牛：25款 FXT/25款 NXT/NLT/25款 NPlay","note":"下单前需复核实车仓位、接口、控制器母线和使用场景。","tags":["72V","三元锂","无损直上"]},{"sourceId":9,"voltage":72,"chemistry":"三元锂","positioning":"通用成交款","model":"72V117ah 三元锂","cell":"宁德117刀片 全新B","cellStatus":"全新B","capacity":117,"rate":"2C","resistance":0.5,"cellWeight":1.75,"bms":"极空120//蚂蚁325","batteryWire":"20平方","controllerWire":"20平方","chargeWire":"8平方","chargeLimit":"50A","price":5300,"pricePerAh":45.3,"directFit":"九号：NZ/MZ/N370C/N385C/M80C/M85C/M95C/M395C/M385C/M395C闪骑/M385C闪骑/M5/M3 100；极核：26款 AE4/AE4 SE/25款 AE4/AE4 SE/AE5i/AE5i Pro/AE3/AE3 Pro；\n小牛：NX风速/FX风速/FX Pro/NX Pro/24款 FXT/25款 FXT/25款 NXT/NLT/N1S /NQI（改最大化仓）/艾薇三代车架/24款 NPlay/25款 NPlay","modifiedFit":"九号：E80C/E125MK2/E80CMK2","fit":"九号：NZ/MZ/N370C/N385C/M80C/M85C/M95C/M395C/M385C/M395C闪骑/M385C闪骑/M5/M3 100；极核：26款 AE4/AE4 SE/25款 AE4/AE4 SE/AE5i/AE5i Pro/AE3/AE3 Pro；\n小牛：NX风速/FX风速/FX Pro/NX Pro/24款 FXT/25款 FXT/25款 NXT/NLT/N1S /NQI（改最大化仓）/艾薇三代车架/24款 NPlay/25款 NPlay；九号：E80C/E125MK2/E80CMK2","note":"下单前需复核实车仓位、接口、控制器母线和使用场景。","tags":["72V","三元锂","无损直上"]},{"sourceId":10,"voltage":72,"chemistry":"三元锂","positioning":"通用成交款","model":"72V127.9ah 三元锂","cell":"宁德127.9全新B","cellStatus":"全新B","capacity":127.9,"rate":"2C","resistance":0.5,"cellWeight":1.7,"bms":"极空120//蚂蚁325","batteryWire":"16平方","controllerWire":"16平方","chargeWire":"8平方","chargeLimit":"50A","price":4900,"pricePerAh":38.31,"directFit":"九号：E80C/MK2/N系（新款）/M系/MZ/NZ；极核：AE4/AE5；小牛：NXT/NX/FXT/FX；原车32A以上铅酸电池仓可直上","modifiedFit":"根据尺寸定制","fit":"九号：E80C/MK2/N系（新款）/M系/MZ/NZ；极核：AE4/AE5；小牛：NXT/NX/FXT/FX；原车32A以上铅酸电池仓可直上；根据尺寸定制","note":"下单前需复核实车仓位、接口、控制器母线和使用场景。","tags":["72V","三元锂","无损直上"]},{"sourceId":11,"voltage":72,"chemistry":"三元锂","positioning":"通用成交款","model":"72V128ah 三元锂","cell":"中航128全新A/A-","cellStatus":"全新A/A-","capacity":128,"rate":"2C","resistance":0.42,"cellWeight":2,"bms":"极空120//蚂蚁325","batteryWire":"16平方","controllerWire":"16平方","chargeWire":"8平方","chargeLimit":"50A","price":4800,"pricePerAh":37.5,"directFit":"九号：N370C/N385C/M80C/M85C/M95C/M395C/M385C/M395C闪骑/M385C闪骑/M5/M3 100；极核：26款 AE4/AE4 SE；\n小牛：NX风速/FX风速/FX Pro/24款 FXT/N1S /NQI（改最大化仓）/艾薇三代车架/24款 NPlay","modifiedFit":"九号：NZ/MZ/E80C/E125MK2/E80CMK2；极核：25款 AE4/AE4 SE/AE5i/ AE5i Pro/AE3/AE3 Pro;小牛：NX Pro/25款 FXT/25款 NXT/NLT/25款 NPlay","fit":"九号：N370C/N385C/M80C/M85C/M95C/M395C/M385C/M395C闪骑/M385C闪骑/M5/M3 100；极核：26款 AE4/AE4 SE；\n小牛：NX风速/FX风速/FX Pro/24款 FXT/N1S /NQI（改最大化仓）/艾薇三代车架/24款 NPlay；九号：NZ/MZ/E80C/E125MK2/E80CMK2；极核：25款 AE4/AE4 SE/AE5i/ AE5i Pro/AE3/AE3 Pro;小牛：NX Pro/25款 FXT/25款 NXT/NLT/25款 NPlay","note":"下单前需复核实车仓位、接口、控制器母线和使用场景。","tags":["72V","三元锂","无损直上"]},{"sourceId":12,"voltage":72,"chemistry":"三元锂","positioning":"通用成交款","model":"72v132ah 三元锂","cell":"欣旺达132全新B","cellStatus":"全新B","capacity":132,"rate":"2C","resistance":0.3,"cellWeight":2,"bms":"蚂蚁550","batteryWire":"20平方","controllerWire":"20平方","chargeWire":"8平方","chargeLimit":"80A","price":4800,"pricePerAh":36.36,"directFit":"九号：M5/M3 100；极核：26款 AE4/AE4 SE；\n小牛：NX风速/FX风速/FX Pro/24款 FXT/艾薇三代车架","modifiedFit":"九号：NZ/MZ/N370C/N385C/M80C/M85C/M95C/M395C/M385C/M395C闪骑/M385C闪骑/E80C/E125MK2/E80CMK2；极核：25款 AE4/AE4 SE/AE5i/ AE5i Pro/AE3/AE3 Pro;小牛：NX Pro/25款 FXT/25款 NXT/NLT/N1S /NQI（改最大化仓）/24款 NPlay/25款 NPlay","fit":"九号：M5/M3 100；极核：26款 AE4/AE4 SE；\n小牛：NX风速/FX风速/FX Pro/24款 FXT/艾薇三代车架；九号：NZ/MZ/N370C/N385C/M80C/M85C/M95C/M395C/M385C/M395C闪骑/M385C闪骑/E80C/E125MK2/E80CMK2；极核：25款 AE4/AE4 SE/AE5i/ AE5i Pro/AE3/AE3 Pro;小牛：NX Pro/25款 FXT/25款 NXT/NLT/N1S /NQI（改最大化仓）/24款 NPlay/25款 NPlay","note":"下单前需复核实车仓位、接口、控制器母线和使用场景。","tags":["72V","三元锂","无损直上"]},{"sourceId":13,"voltage":72,"chemistry":"三元锂","positioning":"性能改装款","model":"72-134ah 三元锂","cell":"宁德麒麟134全新B","cellStatus":"全新B","capacity":134,"rate":"4C","resistance":0.35,"cellWeight":2,"bms":"蚂蚁550","batteryWire":"16平方","controllerWire":"16平方","chargeWire":"8平方","chargeLimit":"80A","price":5200,"pricePerAh":38.81,"directFit":"九号：M5/M3 100；极核：26款 AE4/AE4 SE；\n小牛：NX风速/FX风速/FX Pro/24款 FXT/艾薇三代车架","modifiedFit":"九号：NZ/MZ/N370C/N385C/M80C/M85C/M95C/M395C/M385C/M395C闪骑/M385C闪骑/E80C/E125MK2/E80CMK2；极核：26款 AE4/AE4 SE/25款 AE4/AE4 SE/AE5i/ AE5i Pro/AE3/AE3 Pro;小牛：NX Pro/25款 FXT/25款 NXT/NLT/N1S /NQI（改最大化仓）/24款 NPlay/25款 NPlay","fit":"九号：M5/M3 100；极核：26款 AE4/AE4 SE；\n小牛：NX风速/FX风速/FX Pro/24款 FXT/艾薇三代车架；九号：NZ/MZ/N370C/N385C/M80C/M85C/M95C/M395C/M385C/M395C闪骑/M385C闪骑/E80C/E125MK2/E80CMK2；极核：26款 AE4/AE4 SE/25款 AE4/AE4 SE/AE5i/ AE5i Pro/AE3/AE3 Pro;小牛：NX Pro/25款 FXT/25款 NXT/NLT/N1S /NQI（改最大化仓）/24款 NPlay/25款 NPlay","note":"下单前需复核实车仓位、接口、控制器母线和使用场景。","tags":["72V","三元锂","高倍率","无损直上"]},{"sourceId":14,"voltage":72,"chemistry":"三元锂","positioning":"通用成交款","model":"72v137ah三元锂","cell":"中航137全新A/A-","cellStatus":"全新A/A-","capacity":137,"rate":"2C","resistance":0.4,"cellWeight":2.1,"bms":"蚂蚁550","batteryWire":"20平方","controllerWire":"20平方","chargeWire":"8平方","chargeLimit":"80A","price":5380,"pricePerAh":39.27,"directFit":"九号：N370C/N385C/M80C/M85C/M95C/M395C/M385C/M395C闪骑/M385C闪骑/M5/M3 100；极核：26款 AE4/AE4 SE；\n小牛：NX风速/FX风速/FX Pro/24款 FXT/艾薇三代车架","modifiedFit":"九号：NZ/MZ/E80C/E125MK2/E80CMK2；极核：25款 AE4/AE4 SEAE5i/ AE5i Pro/AE3/AE3 Pro;小牛：NX Pro/25款 FXT/25款 NXT/NLT/N1S /NQI（改最大化仓）/24款 NPlay/25款 NPlay","fit":"九号：N370C/N385C/M80C/M85C/M95C/M395C/M385C/M395C闪骑/M385C闪骑/M5/M3 100；极核：26款 AE4/AE4 SE；\n小牛：NX风速/FX风速/FX Pro/24款 FXT/艾薇三代车架；九号：NZ/MZ/E80C/E125MK2/E80CMK2；极核：25款 AE4/AE4 SEAE5i/ AE5i Pro/AE3/AE3 Pro;小牛：NX Pro/25款 FXT/25款 NXT/NLT/N1S /NQI（改最大化仓）/24款 NPlay/25款 NPlay","note":"下单前需复核实车仓位、接口、控制器母线和使用场景。","tags":["72V","三元锂","无损直上"]},{"sourceId":15,"voltage":72,"chemistry":"三元锂","positioning":"性能改装款","model":"72v138ah三元锂","cell":"宁德麒麟138.8 模组","cellStatus":"模组","capacity":138.8,"rate":"4C","resistance":0.25,"cellWeight":2,"bms":"蚂蚁550","batteryWire":"20平方","controllerWire":"20平方","chargeWire":"8平方","chargeLimit":"100A","price":5600,"pricePerAh":40.35,"directFit":"九号：M5/M3 100；\n小牛：NX风速/FX风速/FX Pro/艾薇三代车架","modifiedFit":"九号：NZ/MZ/N370C/N385C/M80C/M85C/M95C/M395C/M385C/M395C闪骑/M385C闪骑/E80C/E125MK2/E80CMK2；极核：26款 AE4/AE4 SE/25款 AE4/AE4 SEAE5i/ AE5i Pro/AE3/AE3 Pro;小牛：NX Pro/24款 FXT/25款 FXT/25款 NXT/NLT/N1S /NQI（改最大化仓）/24款 NPlay/25款 NPlay","fit":"九号：M5/M3 100；\n小牛：NX风速/FX风速/FX Pro/艾薇三代车架；九号：NZ/MZ/N370C/N385C/M80C/M85C/M95C/M395C/M385C/M395C闪骑/M385C闪骑/E80C/E125MK2/E80CMK2；极核：26款 AE4/AE4 SE/25款 AE4/AE4 SEAE5i/ AE5i Pro/AE3/AE3 Pro;小牛：NX Pro/24款 FXT/25款 FXT/25款 NXT/NLT/N1S /NQI（改最大化仓）/24款 NPlay/25款 NPlay","note":"下单前需复核实车仓位、接口、控制器母线和使用场景。","tags":["72V","三元锂","高倍率","无损直上"]},{"sourceId":16,"voltage":72,"chemistry":"三元锂","positioning":"性能改装款","model":"72v140.9ah三元锂","cell":"宁德140.9全新B","cellStatus":"全新B","capacity":140.9,"rate":"3C","resistance":0.52,"cellWeight":1.9,"bms":"蚂蚁550","batteryWire":"20平方","controllerWire":"20平方","chargeWire":"8平方","chargeLimit":"50A","price":5900,"pricePerAh":41.87,"directFit":"九号：NZ/MZ；极核：AE5i/AE5i Pro","modifiedFit":"/","fit":"九号：NZ/MZ；极核：AE5i/AE5i Pro；/","note":"下单前需复核实车仓位、接口、控制器母线和使用场景。","tags":["72V","三元锂","高倍率","无损直上"]},{"sourceId":17,"voltage":72,"chemistry":"三元锂","positioning":"性能改装款","model":"72V143ah 三元锂","cell":"宁德143麒麟 模组","cellStatus":"模组","capacity":143,"rate":"4C","resistance":0.3,"cellWeight":2.24,"bms":"蚂蚁550","batteryWire":"20平方","controllerWire":"20平方","chargeWire":"8平方","chargeLimit":"100A","price":5300,"pricePerAh":37.06,"directFit":"九号：M5；小牛：FX风速/NX风速","modifiedFit":"其它切桶","fit":"九号：M5；小牛：FX风速/NX风速；其它切桶","note":"下单前需复核实车仓位、接口、控制器母线和使用场景。","tags":["72V","三元锂","高倍率","无损直上"]},{"sourceId":18,"voltage":72,"chemistry":"三元锂","positioning":"性能改装款","model":"72V146ah 三元锂","cell":"宁德146麒麟全新B","cellStatus":"全新B","capacity":146,"rate":"4C","resistance":0.3,"cellWeight":2.25,"bms":"蚂蚁550","batteryWire":"20平方","controllerWire":"20平方","chargeWire":"8平方","chargeLimit":"100A","price":5400,"pricePerAh":36.99,"directFit":"九号：M5/M3 100；极核：26款 AE4/AE4 SE；\n小牛：NX风速/FX风速/FX Pro/24款 FXT/艾薇三代车架","modifiedFit":"九号：NZ/MZ/N370C/N385C/M80C/M85C/M95C/M395C/M385C/M395C闪骑/M385C闪骑/E80C/E125MK2/E80CMK2；极核：25款 AE4/AE4 SE/AE5i/ AE5i Pro/AE3/AE3 Pro;小牛：NX Pro/25款 FXT/25款 NXT/NLT/N1S /NQI（改最大化仓）/24款 NPlay/25款 NPlay","fit":"九号：M5/M3 100；极核：26款 AE4/AE4 SE；\n小牛：NX风速/FX风速/FX Pro/24款 FXT/艾薇三代车架；九号：NZ/MZ/N370C/N385C/M80C/M85C/M95C/M395C/M385C/M395C闪骑/M385C闪骑/E80C/E125MK2/E80CMK2；极核：25款 AE4/AE4 SE/AE5i/ AE5i Pro/AE3/AE3 Pro;小牛：NX Pro/25款 FXT/25款 NXT/NLT/N1S /NQI（改最大化仓）/24款 NPlay/25款 NPlay","note":"下单前需复核实车仓位、接口、控制器母线和使用场景。","tags":["72V","三元锂","高倍率","无损直上"]},{"sourceId":19,"voltage":72,"chemistry":"三元锂","positioning":"性能改装款","model":"72V147.9ah三元锂","cell":"欣旺达147.9全新A/A-","cellStatus":"全新A/A-","capacity":147.9,"rate":"4C","resistance":0.18,"cellWeight":2.3,"bms":"蚂蚁850","batteryWire":"20平方","controllerWire":"20平方","chargeWire":"8平方","chargeLimit":"150A","price":5800,"pricePerAh":39.22,"directFit":"九号：M5/M3 100；\n小牛：NX风速/FX风速/FX Pro/艾薇三代车架","modifiedFit":"九号：NZ/MZ/N370C/N385C/M80C/M85C/M95C/M395C/M385C/M395C闪骑/M385C闪骑/E80C/E125MK2/E80CMK2；极核：26款 AE4/AE4 SE/25款 AE4/AE4 SE/AE5i/ AE5i Pro/AE3/AE3 Pro;小牛：NX Pro/24款 FXT/25款 FXT/25款 NXT/NLT/N1S /NQI（改最大化仓）/24款 NPlay/25款 NPlay","fit":"九号：M5/M3 100；\n小牛：NX风速/FX风速/FX Pro/艾薇三代车架；九号：NZ/MZ/N370C/N385C/M80C/M85C/M95C/M395C/M385C/M395C闪骑/M385C闪骑/E80C/E125MK2/E80CMK2；极核：26款 AE4/AE4 SE/25款 AE4/AE4 SE/AE5i/ AE5i Pro/AE3/AE3 Pro;小牛：NX Pro/24款 FXT/25款 FXT/25款 NXT/NLT/N1S /NQI（改最大化仓）/24款 NPlay/25款 NPlay","note":"下单前需复核实车仓位、接口、控制器母线和使用场景。","tags":["72V","三元锂","高倍率","无损直上"]},{"sourceId":20,"voltage":72,"chemistry":"三元锂","positioning":"性能改装款","model":"72v151ah三元锂","cell":"宁德麒麟151 模组","cellStatus":"模组","capacity":151,"rate":"4C","resistance":0.4,"cellWeight":2.1,"bms":"蚂蚁550","batteryWire":"20平方","controllerWire":"20平方","chargeWire":"8平方","chargeLimit":"100A","price":6300,"pricePerAh":41.72,"directFit":"九号：M5/M3 100；\n小牛：NX风速/FX风速/FX Pro/NX Pro/艾薇三代车架","modifiedFit":"九号：NZ/MZ/N370C/N385C/M80C/M85C/M95C/M395C/M385C/M395C闪骑/M385C闪骑/E80C；极核：26款 AE4/AE4 SE/25款 AE4/AE4 SE/AE5i/ AE5i Pro/AE3/AE3 Pro；小牛：24款 FXT/25款 FXT/25款 NXT/NLT/N1S /NQI（改最大化仓）/24款 NPlay/25款 NPlay","fit":"九号：M5/M3 100；\n小牛：NX风速/FX风速/FX Pro/NX Pro/艾薇三代车架；九号：NZ/MZ/N370C/N385C/M80C/M85C/M95C/M395C/M385C/M395C闪骑/M385C闪骑/E80C；极核：26款 AE4/AE4 SE/25款 AE4/AE4 SE/AE5i/ AE5i Pro/AE3/AE3 Pro；小牛：24款 FXT/25款 FXT/25款 NXT/NLT/N1S /NQI（改最大化仓）/24款 NPlay/25款 NPlay","note":"下单前需复核实车仓位、接口、控制器母线和使用场景。","tags":["72V","三元锂","高倍率","高续航","无损直上"]},{"sourceId":21,"voltage":72,"chemistry":"三元锂","positioning":"性能改装款","model":"72v154.1三元锂","cell":"宁德麒麟154.4 全新B","cellStatus":"全新B","capacity":154.4,"rate":"3C","resistance":0.22,"cellWeight":2.1,"bms":"蚂蚁550","batteryWire":"20平方","controllerWire":"20平方","chargeWire":"8平方","chargeLimit":"100A","price":5300,"pricePerAh":34.33,"directFit":"九号：M3 100；\n小牛：NX风速/FX风速","modifiedFit":"其它车型按需定制","fit":"九号：M3 100；\n小牛：NX风速/FX风速；其它车型按需定制","note":"下单前需复核实车仓位、接口、控制器母线和使用场景。","tags":["72V","三元锂","高倍率","高续航","无损直上"]},{"sourceId":22,"voltage":72,"chemistry":"三元锂","positioning":"性能改装款","model":"72V158ah 三元锂","cell":"宁德158麒麟 模组","cellStatus":"模组","capacity":158,"rate":"4C","resistance":0.3,"cellWeight":2.35,"bms":"蚂蚁550","batteryWire":"20平方","controllerWire":"20平方","chargeWire":"8平方","chargeLimit":"100A","price":5380,"pricePerAh":34.05,"directFit":"九号：M5/M3 100；\n小牛：NX风速/FX风速/FX Pro/艾薇三代车架","modifiedFit":"九号：NZ/MZ/N370C/N385C/M80C/M85C/M95C/M395C/M385C/M395C闪骑/M385C闪骑/E125MK2/E80CMK2；极核：26款 AE4/AE4 SE/25款 AE4/AE4 SEAE5i/ AE5i Pro/AE3/AE3 Pro;小牛：NX Pro/24款 FXT/25款 FXT/25款 NXT/NLT/N1S /NQI（改最大化仓）/24款 NPlay/25款 NPlay","fit":"九号：M5/M3 100；\n小牛：NX风速/FX风速/FX Pro/艾薇三代车架；九号：NZ/MZ/N370C/N385C/M80C/M85C/M95C/M395C/M385C/M395C闪骑/M385C闪骑/E125MK2/E80CMK2；极核：26款 AE4/AE4 SE/25款 AE4/AE4 SEAE5i/ AE5i Pro/AE3/AE3 Pro;小牛：NX Pro/24款 FXT/25款 FXT/25款 NXT/NLT/N1S /NQI（改最大化仓）/24款 NPlay/25款 NPlay","note":"下单前需复核实车仓位、接口、控制器母线和使用场景。","tags":["72V","三元锂","高倍率","高续航","无损直上"]},{"sourceId":23,"voltage":72,"chemistry":"三元锂","positioning":"高续航款","model":"72V169ah 三元锂","cell":"中航169全新A/A-","cellStatus":"全新A/A-","capacity":169,"rate":"2C","resistance":0.32,"cellWeight":2.55,"bms":"蚂蚁550","batteryWire":"20平方","controllerWire":"20平方","chargeWire":"8平方","chargeLimit":"100A","price":6450,"pricePerAh":38.17,"directFit":"九号：M3 100；\n小牛：NX风速/FX风速/FX Pro/艾薇三代车架","modifiedFit":"九号：NZ/MZ/N370C/N385C/M80C/M85C/M95C/M395C/M385C/M395C闪骑/M385C闪骑/M5/E80C；极核：26款 AE4/AE4 SE/25款 AE4/AE4 SEAE5i/ AE5i Pro/AE3/AE3 Pro;小牛：NX Pro/24款 FXT/25款 FXT/25款 NXT/NLT/N1S /NQI（改最大化仓）/24款 NPlay/25款 NPlay","fit":"九号：M3 100；\n小牛：NX风速/FX风速/FX Pro/艾薇三代车架；九号：NZ/MZ/N370C/N385C/M80C/M85C/M95C/M395C/M385C/M395C闪骑/M385C闪骑/M5/E80C；极核：26款 AE4/AE4 SE/25款 AE4/AE4 SEAE5i/ AE5i Pro/AE3/AE3 Pro;小牛：NX Pro/24款 FXT/25款 FXT/25款 NXT/NLT/N1S /NQI（改最大化仓）/24款 NPlay/25款 NPlay","note":"下单前需复核实车仓位、接口、控制器母线和使用场景。","tags":["72V","三元锂","高续航","无损直上"]},{"sourceId":24,"voltage":72,"chemistry":"三元锂","positioning":"性能改装款","model":"72v170ah三元锂","cell":"欣旺达170全新A/A-","cellStatus":"全新A/A-","capacity":170,"rate":"4C","resistance":0.18,"cellWeight":2.3,"bms":"蚂蚁850","batteryWire":"20平方","controllerWire":"20平方","chargeWire":"8平方","chargeLimit":"150A","price":7280,"pricePerAh":42.82,"directFit":"九号：M3 100；\n小牛：NX风速/FX风速/FX Pro/艾薇三代车架","modifiedFit":"九号：NZ/MZ/N370C/N385C/M80C/M85C/M95C/M395C/M385C/M395C闪骑/M385C闪骑/M5/E125MK2/E80CMK2；极核：26款 AE4/AE4 SE/AE5i/ AE5i Pro/AE3/AE3 Pro;小牛：NX Pro/24款 FXT/25款 FXT/25款 NXT/NLT/N1S /NQI（改最大化仓）/24款 NPlay/25款 NPlay","fit":"九号：M3 100；\n小牛：NX风速/FX风速/FX Pro/艾薇三代车架；九号：NZ/MZ/N370C/N385C/M80C/M85C/M95C/M395C/M385C/M395C闪骑/M385C闪骑/M5/E125MK2/E80CMK2；极核：26款 AE4/AE4 SE/AE5i/ AE5i Pro/AE3/AE3 Pro;小牛：NX Pro/24款 FXT/25款 FXT/25款 NXT/NLT/N1S /NQI（改最大化仓）/24款 NPlay/25款 NPlay","note":"下单前需复核实车仓位、接口、控制器母线和使用场景。","tags":["72V","三元锂","高倍率","高续航","无损直上"]},{"sourceId":25,"voltage":72,"chemistry":"三元锂","positioning":"高续航款","model":"72v199ah三元锂","cell":"宁德199 模组","cellStatus":"模组","capacity":199,"rate":"2C","resistance":0.32,"cellWeight":3.1,"bms":"蚂蚁550","batteryWire":"20平方","controllerWire":"20平方","chargeWire":"8平方","chargeLimit":"100A","price":6999,"pricePerAh":35.17,"directFit":"小牛：NX风速","modifiedFit":"九号：NZ/MZ/N370C/N385C/M80C/M85C/M95C/M395C/M385C/M395C闪骑/M385C闪骑/M5/E80C/E125MK2/E80CMK2/M3 100；极核：26款 AE4/AE4 SE/25款 AE4/AE4 SE/AE5i/ AE5i Pro/AE3/AE3 Pro;\n小牛：FX风速/FX Pro/NX Pro/24款 FXT/25款 FXT/25款 NXT/NLT/N1S /NQI（改最大化仓）/艾薇三代车架/24款 NPlay/25款 NPlay","fit":"小牛：NX风速；九号：NZ/MZ/N370C/N385C/M80C/M85C/M95C/M395C/M385C/M395C闪骑/M385C闪骑/M5/E80C/E125MK2/E80CMK2/M3 100；极核：26款 AE4/AE4 SE/25款 AE4/AE4 SE/AE5i/ AE5i Pro/AE3/AE3 Pro;\n小牛：FX风速/FX Pro/NX Pro/24款 FXT/25款 FXT/25款 NXT/NLT/N1S /NQI（改最大化仓）/艾薇三代车架/24款 NPlay/25款 NPlay","note":"下单前需复核实车仓位、接口、控制器母线和使用场景。","tags":["72V","三元锂","高续航","无损直上"]}];
+
+const CONFIG = {
+  accountName: "沛哥的锂电",
+  phone: "18824859983",
+  initialDisplay: 9
+};
+
+const $ = (selector, root=document) => root.querySelector(selector);
+const $$ = (selector, root=document) => [...root.querySelectorAll(selector)];
+
+let activeProductFilter = "all";
+let expandedProducts = false;
+
+function money(value) {
+  return new Intl.NumberFormat("zh-CN").format(value);
+}
+
+function productCard(p, compact=false) {
+  const tags = (p.tags || []).map(t => `<span>${t}</span>`).join("");
+  return `
+    <article class="product-card">
+      <div class="card-top">
+        <span class="grade grade-${p.chemistry === "磷酸铁锂" ? "B" : "A"}">${p.chemistry} · ${p.positioning}</span>
+        <div class="price">¥${money(p.price)} <small>/组</small></div>
+      </div>
+      <div>
+        <h3>${p.model}</h3>
+        <div class="cell-name">${p.cell} · ${p.cellStatus}</div>
+      </div>
+      <div class="specs">
+        <span>${p.voltage}V / ${p.capacity}Ah</span>
+        <span>${p.rate}倍率</span>
+        <span>内阻 ${p.resistance}mΩ</span>
+        <span>${p.bms}</span>
+        <span>放电线 ${p.batteryWire}</span>
+        <span>充电上限 ${p.chargeLimit}</span>
+      </div>
+      ${tags ? `<div class="tags">${tags}</div>` : ""}
+      <div class="fit-text"><b>无损直上：</b>${p.directFit || "需按尺寸确认"}</div>
+      <div class="fit-text"><b>改仓适配：</b>${p.modifiedFit && p.modifiedFit !== "/" ? p.modifiedFit : "暂无公开记录"}</div>
+      <div class="card-action">
+        <small>报价不含充电器</small>
+        <button type="button" data-consult="${p.model}">拿这个方案咨询 →</button>
+      </div>
+    </article>`;
+}
+
+function filterProducts(filter) {
+  return PRODUCTS.filter(p => {
+    if (filter === "all") return true;
+    if (filter === "60V" || filter === "72V") return p.voltage === Number(filter.slice(0, -1));
+    if (filter === "performance") return Number.parseFloat(p.rate) >= 3;
+    if (filter === "highRange") return Number(p.capacity) >= 150;
+    return p.positioning === filter;
+  });
+}
+
+function renderProducts() {
+  let list = filterProducts(activeProductFilter);
+  const visible = expandedProducts ? list : list.slice(0, CONFIG.initialDisplay);
+  $("#productGrid").innerHTML = visible.map(p => productCard(p)).join("");
+  const btn = $("#showAllProducts");
+  if (list.length <= CONFIG.initialDisplay) {
+    btn.style.display = "none";
+  } else {
+    btn.style.display = "flex";
+    btn.textContent = expandedProducts ? "收起产品列表" : `展开全部${list.length}款`;
+  }
+  bindConsultButtons();
+}
+
+function matchProducts() {
+  const keyword = $("#vehicleSearch").value.trim().toLowerCase();
+  const scene = $("#sceneSelect").value;
+  const budget = Number($("#budgetSelect").value);
+
+  let list = PRODUCTS.filter(p => p.price <= budget);
+
+  if (scene === "highRange") {
+    list = list.filter(p => Number(p.capacity) >= 150);
+  } else if (scene === "performance") {
+    list = list.filter(p => Number.parseFloat(p.rate) >= 3);
+  } else if (scene === "directFit") {
+    list = list.filter(p => p.directFit && !/^(根据尺寸定制|\/$)/.test(p.directFit));
+  } else if (scene !== "all") {
+    list = list.filter(p => p.positioning === scene);
+  }
+
+  if (keyword) {
+    list = list.filter(p => {
+      const haystack = `${p.directFit} ${p.modifiedFit} ${p.model} ${p.cell} ${p.note}`.toLowerCase();
+      return haystack.includes(keyword);
+    });
+  }
+
+  list.sort((a,b) => {
+    const directA = a.directFit && !/^(根据尺寸定制|\/$)/.test(a.directFit) ? 0 : 1;
+    const directB = b.directFit && !/^(根据尺寸定制|\/$)/.test(b.directFit) ? 0 : 1;
+    if (directA !== directB) return directA - directB;
+    return a.price - b.price;
+  });
+
+  const result = list.slice(0, 6);
+  $("#fitSummary").innerHTML = result.length
+    ? `找到 <strong>${list.length}</strong> 个初筛方案。以下优先展示有无损直上记录的方案，再按价格排序；最终需复核实车仓位。`
+    : `没有找到完全匹配的公开记录。建议直接把车型、仓位尺寸和控制器发给沛哥单独看。`;
+
+  $("#fitResults").innerHTML = result.map(p => productCard(p, true)).join("");
+  bindConsultButtons();
+}
+
+function updateCalculator() {
+  const ah = Number($("#capacityRange").value);
+  const whPerKm = Number($("#consumptionRange").value);
+  const usableWh = Math.round(72 * ah * 0.9);
+  const km = Math.round(usableWh / whPerKm);
+  $("#capacityValue").textContent = `${ah}Ah`;
+  $("#consumptionValue").textContent = `${whPerKm}Wh/km`;
+  $("#energyResult").textContent = `${money(usableWh)}Wh`;
+  $("#rangeResult").textContent = `${km}km`;
+}
+
+async function copyText(text) {
+  try {
+    await navigator.clipboard.writeText(text);
+    return true;
+  } catch (e) {
+    const input = document.createElement("textarea");
+    input.value = text;
+    document.body.appendChild(input);
+    input.select();
+    const ok = document.execCommand("copy");
+    input.remove();
+    return ok;
+  }
+}
+
+function bindConsultButtons() {
+  $$("[data-consult]").forEach(btn => {
+    btn.onclick = async () => {
+      const model = btn.dataset.consult;
+      const text = `你好，我在“沛哥的锂电”网站看了 ${model}，我的车型是：____，控制器母线：____A，目标续航：____km。`;
+      await copyText(text);
+      btn.textContent = "咨询内容已复制 ✓";
+      setTimeout(() => btn.textContent = "拿这个方案咨询 →", 1800);
+    };
+  });
+}
+
+function setupGallery() {
+  const dialog = $("#imageDialog");
+  const image = $("#dialogImage");
+  const caption = $("#dialogCaption");
+
+  $$(".gallery-item").forEach(item => {
+    item.addEventListener("click", () => {
+      image.src = item.dataset.image;
+      image.alt = item.dataset.caption;
+      caption.textContent = item.dataset.caption;
+      dialog.showModal();
+    });
+  });
+  $("#closeDialog").onclick = () => dialog.close();
+  dialog.addEventListener("click", e => {
+    if (e.target === dialog) dialog.close();
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderProducts();
+  matchProducts();
+  updateCalculator();
+  setupGallery();
+
+  $("#fitButton").addEventListener("click", matchProducts);
+  $("#vehicleSearch").addEventListener("keydown", e => {
+    if (e.key === "Enter") matchProducts();
+  });
+  $("#sceneSelect").addEventListener("change", matchProducts);
+  $("#budgetSelect").addEventListener("change", matchProducts);
+
+  $("#capacityRange").addEventListener("input", updateCalculator);
+  $("#consumptionRange").addEventListener("input", updateCalculator);
+
+  $$(".filter").forEach(btn => {
+    btn.addEventListener("click", () => {
+      $$(".filter").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      activeProductFilter = btn.dataset.filter;
+      expandedProducts = false;
+      renderProducts();
+    });
+  });
+
+  $("#showAllProducts").addEventListener("click", () => {
+    expandedProducts = !expandedProducts;
+    renderProducts();
+  });
+
+  $("#copyPhone").addEventListener("click", async () => {
+    const text = `沛哥的锂电｜咨询电话：${CONFIG.phone}｜咨询时请发车型、仓位、控制器和需求`;
+    const ok = await copyText(text);
+    $("#copyTip").textContent = ok ? "联系方式已复制 ✓" : `请手动复制：${CONFIG.phone}`;
+  });
+});
+</script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#top" aria-label="沛哥的锂电首页">
+        <img src="assets/logo.webp" alt="沛基">
+        <span>沛哥的锂电</span>
+      </a>
+      <nav aria-label="页面导航">
+        <a href="#fit">查方案</a>
+        <a href="#products">看价格</a>
+        <a href="#craft">看交付</a>
+        <a href="#warranty">看售后</a>
+      </nav>
+      <a class="nav-contact" href="tel:18824859983">电话咨询</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-grid container">
+        <div class="hero-copy">
+          <p class="eyebrow"><span></span> 72V · 100Ah+ · 高性能定制</p>
+          <h1>不是把电芯塞进盒子，<br><em>是把整套方案配明白。</em></h1>
+          <p class="hero-lead">根据车型仓位、控制器母线、电机、续航和快充需求，匹配电芯、保护板、连接片与输出线。生产透明，参数透明，拒绝黑箱。</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#fit">先查适配方案</a>
+            <a class="btn ghost" href="#products">直接看25款报价</a>
+          </div>
+          <div class="hero-points">
+            <span>电芯来源提前说明</span>
+            <span>生产过程照片/视频留痕</span>
+            <span>按真实需求配系统</span>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="pack-card">
+            <div class="pack-top">
+              <span>PJ PERFORMANCE</span>
+              <strong>72V</strong>
+            </div>
+            <div class="cell-grid">
+              <i></i><i></i><i></i><i></i><i></i>
+              <i></i><i></i><i></i><i></i><i></i>
+              <i></i><i></i><i></i><i></i><i></i>
+              <i></i><i></i><i></i><i></i><i></i>
+            </div>
+            <div class="busbar busbar-a"></div>
+            <div class="busbar busbar-b"></div>
+            <div class="bms-box">BMS</div>
+          </div>
+          <div class="float-card f1"><b>20S</b><span>72V平台</span></div>
+          <div class="float-card f2"><b>100A+</b><span>按需输出</span></div>
+          <div class="float-card f3"><b>全流程</b><span>检测留痕</span></div>
+        </div>
+      </div>
+      <div class="hero-stats container">
+        <div><strong>25</strong><span>款完整方案</span></div>
+        <div><strong>54–199Ah</strong><span>主力容量区间</span></div>
+        <div><strong>2C–4C</strong><span>覆盖通勤到改装</span></div>
+        <div><strong>5–7天</strong><span>标准定制生产</span></div>
+      </div>
+    </section>
+
+    <section id="fit" class="section fit-section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow"><span></span> 先别急着问价格</p>
+          <h2>先看你的车，适合哪一类方案</h2>
+          <p>输入车型关键词，例如 M5、NX、FXT、AE4、N系；系统会从现有适配记录里筛选。最终下单前仍需复核仓位尺寸、接口和控制器。</p>
+        </div>
+
+        <div class="fit-panel">
+          <div class="fit-controls">
+            <label>
+              <span>车型关键词</span>
+              <input id="vehicleSearch" type="search" placeholder="例如：M5 / NX / FXT / AE4 / N系">
+            </label>
+            <label>
+              <span>你的主要需求</span>
+              <select id="sceneSelect">
+                <option value="all">不限，先看全部</option>
+                <option value="directFit">优先看无损直上</option>
+                <option value="performance">高倍率 / 电摩改装</option>
+                
+                <option value="highRange">高续航 / 摩旅</option>
+              </select>
+            </label>
+            <label>
+              <span>预算上限</span>
+              <select id="budgetSelect">
+                <option value="99999">不限预算</option>
+                <option value="5000">5000元以内</option>
+                <option value="5500">5500元以内</option>
+                <option value="6000">6000元以内</option>
+                <option value="7500">7500元以内</option>
+              </select>
+            </label>
+            <button id="fitButton" class="btn primary" type="button">给我匹配</button>
+          </div>
+          <div class="fit-note">
+            <b>真正下单前还要确认：</b>
+            <span>电池仓长×宽×高</span>
+            <span>控制器母线电流</span>
+            <span>原车接口/充电口</span>
+            <span>是否接受切坐桶</span>
+          </div>
+          <div id="fitSummary" class="fit-summary" aria-live="polite"></div>
+          <div id="fitResults" class="product-grid compact"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section calculator-section">
+      <div class="container calculator-grid">
+        <div>
+          <div class="section-heading left">
+            <p class="eyebrow"><span></span> 续航估算</p>
+            <h2>别用“多少安跑多少公里”一刀切</h2>
+            <p>这里按电池能量和整车电耗估算，更接近真实逻辑。结果只做选型参考，不作为里程承诺。</p>
+          </div>
+          <div class="calc-card">
+            <label>
+              <span>电池容量 <b id="capacityValue">120Ah</b></span>
+              <input id="capacityRange" type="range" min="90" max="200" value="120" step="1">
+            </label>
+            <label>
+              <span>平均电耗 <b id="consumptionValue">36Wh/km</b></span>
+              <input id="consumptionRange" type="range" min="24" max="60" value="36" step="1">
+            </label>
+            <div class="calc-result">
+              <span>理论可用能量</span>
+              <strong id="energyResult">7776Wh</strong>
+              <span>预计续航</span>
+              <strong id="rangeResult">216km</strong>
+            </div>
+            <small>按72V标称平台、90%可用能量计算；速度、温度、车重、胎压、路况与控制器都会影响结果。</small>
+          </div>
+        </div>
+
+        <div class="truth-card">
+          <div class="truth-number">01</div>
+          <h3>我不保证你一定跑多少公里</h3>
+          <p>我能保证的是：容量按约定检测，电芯来源提前说明，保护板、线束、连接片按需求配置。续航由整车系统和使用方式共同决定。</p>
+          <div class="truth-list">
+            <span>容量要测</span>
+            <span>内阻要筛</span>
+            <span>压差要看</span>
+            <span>动态温升要测</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="products" class="section products-section">
+      <div class="container">
+        <div class="section-heading split">
+          <div>
+            <p class="eyebrow"><span></span> 公开报价</p>
+            <h2>25款完整方案，规格、价格和适配一次讲清</h2>
+            <p>以下为不含充电器参考价。广东省内运费60元，广东省外100元；库存与电芯批次会波动，最终以双方确认订单为准。</p>
+          </div>
+          <div class="filter-bar">
+            <button class="filter active" data-filter="all">全部</button>
+            <button class="filter" data-filter="60V">60V</button>
+            <button class="filter" data-filter="72V">72V</button>
+            <button class="filter" data-filter="performance">高倍率</button>
+            <button class="filter" data-filter="highRange">150Ah+</button>
+          </div>
+        </div>
+        <div id="productGrid" class="product-grid"></div>
+        <button id="showAllProducts" class="btn ghost centered" type="button">展开全部25款</button>
+        <div class="price-includes">
+          <div>
+            <b>标准配置包含</b>
+            <span>电芯</span><span>保护板</span><span>分流线</span><span>放电线</span><span>充电线</span><span>XT90充电口</span>
+          </div>
+          <div>
+            <b>下单前确认</b>
+            <span>仓位</span><span>坐桶</span><span>接口</span><span>控制器母线</span><span>充电需求</span><span>使用场景</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="craft" class="section craft-section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow"><span></span> 拒绝黑箱</p>
+          <h2>你买到的不只是一个黑盒子</h2>
+          <p>从方案确认到发货，每个关键节点都能留照片、视频和检测数据。承认自己是小PACK厂，但该做的检测不省。</p>
+        </div>
+        <div class="craft-grid">
+          <article><span>01</span><h3>需求与适配确认</h3><p>车型、仓位、接口、母线电流、快充与续航目标一次问清。</p></article>
+          <article><span>02</span><h3>电芯来源与配组</h3><p>等级、来源、日期、极耳状态提前说明；电压、内阻与容量按批次检测。</p></article>
+          <article><span>03</span><h3>系统配置</h3><p>保护板、连接片、输出线不是越大越好，而是与电芯和控制器匹配。</p></article>
+          <article><span>04</span><h3>生产过程留痕</h3><p>布局、连接、采样线、BMS参数、接口和箱体状态均可拍摄交付。</p></article>
+          <article><span>05</span><h3>充放电与温升</h3><p>记录总压、单串压差、温升、充放电电流与保护状态。</p></article>
+          <article><span>06</span><h3>终检与发货</h3><p>尺寸、重量、接口、标签与配件复核后再包装发货。</p></article>
+        </div>
+
+        <div class="gallery">
+          <button class="gallery-item" data-image="assets/cells-stack.webp" data-caption="电芯到货与外观检查">
+            <img src="assets/cells-stack.webp" alt="电芯到货实拍">
+            <span>电芯到货</span>
+          </button>
+          <button class="gallery-item" data-image="assets/cells-box.webp" data-caption="大单体电芯批次实拍">
+            <img src="assets/cells-box.webp" alt="大单体电芯实拍">
+            <span>电芯批次</span>
+          </button>
+          <button class="gallery-item poster" data-image="assets/process.webp" data-caption="沛基锂电定制交付流程">
+            <img src="assets/process.webp" alt="锂电定制交付流程">
+            <span>交付流程</span>
+          </button>
+          <button class="gallery-item poster" data-image="assets/about.webp" data-caption="关于我们与交付标准">
+            <img src="assets/about.webp" alt="关于沛基锂电">
+            <span>关于我们</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="warranty" class="section warranty-section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow"><span></span> 售后边界提前说</p>
+          <h2>售后不是口号，先把条件写清楚</h2>
+          <p>以下为沛基当前标准口径，最终以订单书面确认内容为准。</p>
+        </div>
+        <div class="warranty-grid">
+          <article class="featured">
+            <span>第一年</span>
+            <h3>电芯问题或压差超标，免费更换新电池</h3>
+            <p>三元锂满电压差超过0.060V，或确认属于电芯质量问题，按约定免费更换。磷酸铁锂压差口径另行确认。</p>
+          </article>
+          <article>
+            <span>第二年</span>
+            <h3>免人工售后</h3>
+            <p>收取实际配件成本费，不再收人工维修费。</p>
+          </article>
+          <article>
+            <span>运费</span>
+            <h3>两年内来回运费AA</h3>
+            <p>广东省内单程通常约60元，省外通常约100元，按实际物流费用结算。</p>
+          </article>
+          <article>
+            <span>不属于免费质保</span>
+            <h3>人为损坏与超规格使用</h3>
+            <p>私拆、进水、短接、使用不匹配充电器、控制器超出确认母线范围等，不属于免费质保。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq-section">
+      <div class="container narrow">
+        <div class="section-heading">
+          <p class="eyebrow"><span></span> 高频问题</p>
+          <h2>下单前，先把容易扯皮的说透</h2>
+        </div>
+        <div class="faq-list">
+          <details open>
+            <summary>我的车到底能装多大？</summary>
+            <p>先发车型与年款；最好再量电池仓长、宽、高，拍出接口和坐桶结构。网站匹配只做初筛，实车仓位复核后才确认。</p>
+          </details>
+          <details>
+            <summary>价格里面包含什么？</summary>
+            <p>按报价表标注执行，标准配置包含电芯、保护板、分流线、放电线、充电线和XT90充电口；网页价格不含充电器，运费另计。</p>
+          </details>
+          <details>
+            <summary>为什么同样容量，价格差这么多？</summary>
+            <p>差异不只在容量，还包括电芯来源和等级、倍率、内阻、保护板、充电器、线束规格、仓位利用率和售后边界。</p>
+          </details>
+          <details>
+            <summary>能不能按控制器功率直接配？</summary>
+            <p>不能只看控制器标称功率，还要看母线电流、峰值持续时间、电机、目标速度和散热条件。电池组的安全边界由最弱的一环决定。</p>
+          </details>
+          <details>
+            <summary>多久可以发货？</summary>
+            <p>成熟方案通常3–5个工作日；标准定制5–7个工作日；复杂仓位、高倍率或特殊接口通常7–12个工作日。物流时间另算。</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="container final-grid">
+        <div>
+          <p class="eyebrow"><span></span> 找沛哥确认方案</p>
+          <h2>把车型、仓位和控制器发过来，<br>先把不确定的变成确定。</h2>
+          <p>咨询时建议一次发：车型年款、电池仓尺寸、接口照片、控制器型号/母线、目标速度、续航和充电时间。</p>
+        </div>
+        <div class="contact-card">
+          <span>抖音账号</span>
+          <strong>沛哥的锂电</strong>
+          <span>咨询电话</span>
+          <a href="tel:18824859983">18824859983</a>
+          <div class="contact-actions">
+            <button id="copyPhone" class="btn primary" type="button">复制联系方式</button>
+            <a class="btn ghost" href="tel:18824859983">立即拨打</a>
+          </div>
+          <small id="copyTip">复制后发送：车型 + 仓位 + 控制器 + 需求</small>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div>
+        <b>沛哥的锂电</b>
+        <span>72V高性能锂电定制 · 生产透明 · 参数透明 · 定制交付</span>
+      </div>
+      <p>页面报价与参数仅供选型参考，最终以双方确认订单为准。锂电池属于高能量产品，请规范充电与使用。</p>
+    </div>
+  </footer>
+
+  <div class="mobile-bar">
+    <a href="#fit">查方案</a>
+    <a href="#products">看价格</a>
+    <a class="hot" href="tel:18824859983">联系沛哥</a>
+  </div>
+
+  <dialog id="imageDialog">
+    <button id="closeDialog" aria-label="关闭">×</button>
+    <img id="dialogImage" alt="">
+    <p id="dialogCaption"></p>
+  </dialog>
+</body>
+</html>
