@@ -130,7 +130,7 @@ input[type="search"],select{
 input[type="search"]:focus,select:focus{border-color:var(--orange)}
 .fit-note{display:flex;gap:12px;flex-wrap:wrap;padding:18px 4px 6px;color:#949ca8;font-size:13px}
 .fit-note b{color:#dfe3e9}.fit-note span{background:#101319;border:1px solid #282e38;border-radius:99px;padding:3px 10px}
-.fit-summary{margin:18px 0 8px;color:#d5d9e1}
+.fit-summary{margin:18px 0 8px;color:#d5d9e1;scroll-margin-top:92px}
 .fit-summary strong{color:var(--orange2)}
 .fit-toggle{display:none;margin:20px auto 0}
 .product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
@@ -333,7 +333,7 @@ dialog p{margin:0;padding:12px 16px;color:#c4cad3}
   input[type="search"],select{height:50px;font-size:16px}
   #fitButton{width:100%;min-height:50px}
   .fit-note{gap:7px;padding-top:14px}.fit-note b{width:100%}
-  .fit-summary{font-size:14px;line-height:1.65}
+  .fit-summary{font-size:14px;line-height:1.65;scroll-margin-top:78px}
   .section-heading.split{display:block}
   .filter-bar{margin-top:16px;display:flex;flex-wrap:wrap;overflow:visible;padding-bottom:0}
   .filter{flex:0 1 auto;min-height:42px}
@@ -1239,6 +1239,30 @@ function matchProducts() {
     : `没有找到完全匹配的公开记录。请把车型年款、仓位尺寸和接口照片发给沛哥单独复核。`;
 
   renderFitResults();
+  return list.length;
+}
+
+function runMatchInteraction() {
+  const button = $("#fitButton");
+  closeVehiclePicker();
+  button.disabled = true;
+  button.setAttribute("aria-busy", "true");
+  button.textContent = "正在匹配…";
+  $("#fitSummary").innerHTML = "正在根据车型、仓位要求和预算筛选方案…";
+
+  requestAnimationFrame(() => {
+    setTimeout(() => {
+      const count = matchProducts();
+      trackEvent("查适配方案", `${$("#brandSelect").value}｜${$("#vehicleSearch").value || "未填车型"}`);
+      $("#fitSummary").scrollIntoView({behavior:"smooth", block:"start"});
+      button.textContent = count ? `已找到 ${count} 个方案 ↓` : "暂未找到，查看说明 ↓";
+      button.removeAttribute("aria-busy");
+      setTimeout(() => {
+        button.disabled = false;
+        button.textContent = "给我匹配";
+      }, 1400);
+    }, 80);
+  });
 }
 
 function renderFitResults() {
@@ -1389,10 +1413,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupGallery();
   setupContactDialog();
 
-  $("#fitButton").addEventListener("click", () => {
-    trackEvent("查适配方案", `${$("#brandSelect").value}｜${$("#vehicleSearch").value || "未填车型"}`);
-    matchProducts();
-  });
+  $("#fitButton").addEventListener("click", runMatchInteraction);
   $$('a[href^="tel:"]').forEach(link => {
     link.addEventListener("click", () => trackEvent("立即拨打", link.textContent.trim() || CONFIG.phone));
   });
